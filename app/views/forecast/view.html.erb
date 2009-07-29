@@ -1,0 +1,39 @@
+<h1>Forecasts</h1>
+
+<table border="1">
+<tbody>
+<th>VARNAME</th>
+<%
+  @dates.each do |f| 
+%>
+<th>
+<%=  f.forecast_date %>
+</th>
+<%
+end
+%>
+
+<tr>
+<td>Swell Size</td>
+<%
+  @all.find_all {|item| item.var_name == "HTSGW"}.each do |a|
+%>
+
+   <td>  
+     <%= a.value%>
+   </td>          
+
+<% end %>
+</tr>
+
+<%
+     @variables.each  do |var|
+%>
+      <%= render(:partial =>'common_var_entry.html', :locals => {:all =>@all,:var_name => var.name,:human_name=>var.human_name})
+%>
+    <%end%>
+    
+
+</tbody>  
+
+</ul>

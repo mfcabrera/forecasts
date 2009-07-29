@@ -1,0 +1,12 @@
+<tr>
+  <td><%=human_name%></td>
+<%
+    all.find_all {|item| item.var_name == var_name}.each do |a|
+%>
+   <td>  
+     <%= a.value%>
+   </td>          
+
+<% end %>
+</tr>
+
