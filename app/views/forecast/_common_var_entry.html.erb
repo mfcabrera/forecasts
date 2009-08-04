@@ -4,7 +4,7 @@
     all.find_all {|item| item.var_name == var_name}.each do |a|
 %>
    <td>  
-     <%= a.value%>
+     <%= "%.2f" % a.value %>
    </td>          
 
 <% end %>

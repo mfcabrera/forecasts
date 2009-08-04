@@ -2,16 +2,45 @@
 
 <table border="1">
 <tbody>
-<th>VARNAME</th>
+<th>VARNAME </th>
 <%
   @dates.each do |f| 
 %>
 <th>
-<%=  f.forecast_date %>
+<%= f.forecast_date.strftime("%Y-%m-%d %Hh") %>
 </th>
 <%
 end
 %>
+
+<!-- tr -->
+<%
+#  @keys.each do |f| 
+  
+%>
+<!-- td -->
+<!--
+<table border="1">
+<tr> -->
+<%
+# @dates.each do |t|
+ 
+%>
+<!--td -->
+<!-- %= t%-->
+<!-- /td -->
+<%
+#end
+%>
+<!--
+</tr>
+</table>-->
+<!-- /td -->
+<%
+#end
+%>
+<!-- /tr-->
+
 
 <!-- <tr> -->
 <!-- <td>Swell Size</td> -->
@@ -25,6 +54,7 @@ end
 
 <!-- < end > -->
 <!-- </tr> -->
+
 
 <%
      @variables.each  do |var|
