@@ -10,14 +10,13 @@ class ForecastController < ApplicationController
     
     unless ( @lat =~ float_regex and  @lon =~ float_regex )
       #TODO: Error pages when the parameters are malformed
-      render :nothing => true
-      
-    end
-
-    @all = Forecast.find_all_by_lat_and_lon(@lat,@lon)
-    if @all.size == 0
-      #TODO: put an empty message
-      render :nothing => true
+      render :nothing => true            
+    else
+      @all = Forecast.find_all_by_lat_and_lon(@lat,@lon)
+      if @all.size == 0
+        #TODO: put an empty message
+        render :nothing => true
+      end
     end
 
     
@@ -39,7 +38,7 @@ class ForecastController < ApplicationController
     }
     @keys = @dates_by_day.keys.sort
     @variables = Variable.find(:all)
-
+    
   end
 
 end
