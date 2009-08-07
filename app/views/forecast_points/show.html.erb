@@ -1,0 +1,23 @@
+<p>
+  <b>Lat:</b>
+  <%=h @forecast_point.lat %>
+</p>
+
+<p>
+  <b>Lon:</b>
+  <%=h @forecast_point.lon %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @forecast_point.name %>
+</p>
+
+<p>
+  <b>Throttle:</b>
+  <%=h @forecast_point.throttle %>
+</p>
+
+
+<%= link_to 'Edit', edit_forecast_point_path(@forecast_point) %> |
+<%= link_to 'Back', forecast_points_path %>

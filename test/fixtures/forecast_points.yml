@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  lat: 1.5
+  lon: 1.5
+  name: MyString
+  throttle: 1.5
+
+two:
+  lat: 1.5
+  lon: 1.5
+  name: MyString
+  throttle: 1.5

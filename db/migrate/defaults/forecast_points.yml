@@ -1,0 +1,23 @@
+1:
+  id: 1
+  lat: -34
+  lon: 151.25
+  name: Sidney
+  throttle: 0.0
+  
+
+2:
+  id: 2
+  lat: -35
+  lon: 151.25
+  name: Wollongong
+  throttle: 0.0
+
+3:
+  id: 3
+  lat: -33
+  lon: 152.5
+  name: Newcastle
+  throttle: 0.0
+  
+
