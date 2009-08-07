@@ -9,12 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090725184948) do
+ActiveRecord::Schema.define(:version => 299901015011303) do
 
   create_table "forecast_points", :force => true do |t|
     t.float  "lat"
     t.float  "lon"
     t.string "name"
+    t.float  "throttle"
   end
 
   create_table "forecasts", :force => true do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20090725184948) do
     t.string   "name"
     t.string   "human_name"
     t.string   "description"
+    t.float    "throttle"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

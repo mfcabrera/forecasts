@@ -4,7 +4,7 @@ class CreateVariables < ActiveRecord::Migration
       t.string :name
       t.string :human_name
       t.string :description
-
+      t.float  :throttle
       t.timestamps
     end
   end

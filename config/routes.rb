@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :forecast_points
+  #map.connect 'admin/points', :controller => 'forecast_points'
+  #map.connect 'admin/points/:id', :controller => 'forecast_points', :action =>'view'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
