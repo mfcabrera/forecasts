@@ -1,12 +1,13 @@
 <tr>
   <td><%=human_name%></td>
 <%
-    all.find_all {|item| item.var_name == var_name}.each do |a|
+  all_var = all.find_all {|item| item.var_name == var_name}  
+  start_at.upto max do |i|   
+
 %>
    <td>  
-     <%= "%.2f" % a.value %>
+     <%= "%.2f" % all_var[i].value %>
    </td>          
-
-<% end %>
+   <% end %>
 </tr>
 

@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(:version => 299901015011303) do
     t.float     "value"
   end
 
+  create_table "grib_meta", :force => true do |t|
+    t.timestamp "grib_date"
+    t.string    "noaa_filename"
+  end
+
   create_table "variables", :force => true do |t|
     t.string   "name"
     t.string   "human_name"

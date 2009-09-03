@@ -1,76 +1,32 @@
 <h1>Forecasts</h1>
 
 
-<p>
-  <ul>
-    <li>lat: <%=@lat%> </li>    
-    <li>lon: <%=@lon%> </li>
-  </ul>
-</p>
 
-<table border="1">
-<tbody>
-<th>VARNAME </th>
-<%
-  @dates.each do |f| 
-%>
-<th>
-<%= f.forecast_date.strftime("%Y-%m-%d %Hh") %>
-</th>
-<%
-end
-%>
-
-<!-- tr -->
-<%
-#  @keys.each do |f| 
-  
-%>
-<!-- td -->
-<!--
-<table border="1">
-<tr> -->
-<%
-# @dates.each do |t|
- 
-%>
-<!--td -->
-<!-- %= t%-->
-<!-- /td -->
-<%
-#end
-%>
-<!--
-</tr>
-</table>-->
-<!-- /td -->
-<%
-#end
-%>
-<!-- /tr-->
-
-
-<!-- <tr> -->
-<!-- <td>Swell Size</td> -->
-<!-- < -->
-<!--   @all.find_all {|item| item.var_name == "HTSGW"}.each do |a| -->
-<!--  -->
-
-<!--    <td>   -->
-<!--      <= a.value%> -->
-<!--    </td>           -->
-
-<!-- < end > -->
-<!-- </tr> -->
-
-<%
-     @variables.each  do |var|
-%>
-      <%= render(:partial =>'common_var_entry.html', :locals => {:all =>@all,:var_name => var.name,:human_name=>var.human_name})
-%>
-    <%end%>
-    
-
-</tbody>  
-
+<ul>
+  <li>lat: <%=@lat%> </li>    
+  <li>lon: <%=@lon%> </li>
 </ul>
+
+<table>
+<tbody>
+  <tr><td> <%=@fpoint.name %> - WAVE <%=
+  @meta.noaa_filename.upcase.gsub(".GRIB.GRIB2","") %> <%= @meta.grib_date %> </td>
+  <tr>
+    <td>
+      <!--First Row of the  main toplevel tl -->
+      <%= render(:partial =>'subtable_forecast.html', :locals =>  {:st_init=>@f_offset,:st_end=>@max_per_row-1 } )%>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <!--Second Row of the  main toplevel tl -->
+      <%= render(:partial =>'subtable_forecast.html', :locals =>  {:st_init=>@max_per_row+1,:st_end=>@dates.size-1 } )%>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+
++
