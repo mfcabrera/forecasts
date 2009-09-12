@@ -1,5 +1,5 @@
-<table border="1">
-  <tbody>
+<table border="1" >
+  <tbody >
     <tr>
       <th>[Forecast Description]</th>
       <% st_init.upto st_end do |i| %>
@@ -9,13 +9,12 @@
   <% end %>
     </tr>
     
-    <tr>
-      <th>Local Time</th>
+    <tr >
+      <th >Local Time</th>
       <% st_init.upto st_end do |i| %>
       <th>
-          <script type="text/javascript">
-            getLocalTime("<%=@dates[i].forecast_date.strftime(@time_format)%>")
-          </script> 
+        <%= @dates[i].forecast_date.strftime(@time_format) %>
+        
           
       </th>
       <%end%>
@@ -25,7 +24,9 @@
       <% st_init.upto st_end do |i| %>
       <th>
         <!-- here we call a js function to put the local time of the person -->
-        <%= @dates[i].forecast_date.strftime(@time_format) %>
+        <script type="text/javascript">
+          getLocalTime(<%= @dates[i].forecast_date.strftime("%H") %>)
+        </script>         
       </th>
       <%end%>
     </tr>

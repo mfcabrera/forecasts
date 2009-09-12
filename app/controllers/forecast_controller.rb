@@ -6,7 +6,7 @@ class ForecastController < ApplicationController
   def view
     
     @date_format = "%a %d"
-    @time_format = "%Hh."
+    @time_format = "%Hh"
     @f_offset = 3 #when are we going to start showing the forecasts?
     @max_per_row = 31 #how many per row
     

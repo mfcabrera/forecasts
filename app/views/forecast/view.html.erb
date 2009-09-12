@@ -9,8 +9,8 @@
 
 <table>
 <tbody>
-  <tr><td> <%=@fpoint.name %> - WAVE <%=
-  @meta.noaa_filename.upcase.gsub(".GRIB.GRIB2","") %> <%= @meta.grib_date %> </td>
+  <tr><td> <%=@fpoint.name %> - WAVE <%= @meta.noaa_filename.upcase.gsub(".GRIB.GRIB2","") %> 
+  <%= @meta.grib_date %> </td>
   <tr>
     <td>
       <!--First Row of the  main toplevel tl -->
@@ -26,7 +26,3 @@
   </tr>
 </tbody>
 </table>
-
-
-
-+
