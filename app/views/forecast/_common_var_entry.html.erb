@@ -1,12 +1,16 @@
 <tr>
   <td><%=human_name%></td>
+  
+  <% formater = formater_funtion_for_var(var_name) %>
+  
+
 <%
   all_var = all.find_all {|item| item.var_name == var_name}  
   start_at.upto max do |i|   
 
 %>
-   <td>  
-     <%= "%.2f" % all_var[i].value %>
+   <td width="25px">  
+     <%= formater.call(all_var[i].value) %>
    </td>          
    <% end %>
 </tr>

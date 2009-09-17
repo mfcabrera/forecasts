@@ -1,28 +1,15 @@
-<h1>Forecasts</h1>
+<!-- <ul> -->
+<!--   <li>lat: <%=@lat%> </li>     -->
+<!--   <li>lon: <%=@lon%> </li> -->
+<!-- </ul> -->
 
 
+<%= @meta.grib_date %> </td>
+<div class="forecast-table">
+  <%= render(:partial =>'subtable_forecast.html', :locals =>  {:st_init=>@f_offset,:st_end=>@max_per_row-1,:caption=>true } )%>
+</div>
 
-<ul>
-  <li>lat: <%=@lat%> </li>    
-  <li>lon: <%=@lon%> </li>
-</ul>
-
-<table>
-<tbody>
-  <tr><td> <%=@fpoint.name %> - WAVE <%= @meta.noaa_filename.upcase.gsub(".GRIB.GRIB2","") %> 
-  <%= @meta.grib_date %> </td>
-  <tr>
-    <td>
-      <!--First Row of the  main toplevel tl -->
-      <%= render(:partial =>'subtable_forecast.html', :locals =>  {:st_init=>@f_offset,:st_end=>@max_per_row-1 } )%>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <!--Second Row of the  main toplevel tl -->
-      <%= render(:partial =>'subtable_forecast.html', :locals =>  {:st_init=>@max_per_row+1,:st_end=>@dates.size-1 } )%>
-    </td>
-  </tr>
-</tbody>
-</table>
+<div class="forecast-table">  
+  <!--Second Row of the  main toplevel tl -->
+  <%= render(:partial =>'subtable_forecast.html', :locals =>  {:st_init=>@max_per_row+1,:st_end=>@dates.size-1,:caption=>false } )%>
+</div>

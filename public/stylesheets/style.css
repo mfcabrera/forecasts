@@ -1,50 +1,74 @@
-/* 
-	TagBox table styles
-	written by TagBox http://www.tagbox.de
-*/
-table.interior {
+
+body {
+    background: #333;
+    border:0px;
+    padding:0px;
+    margin:0px;
+    
+}
+
+div.content {
+    border:0px;
+    padding:0px;
+    margin:0px;
+}
+
+div.forecast-table {
+    border:0px;
+    padding:0px;
+    background: #333;
+    border-collapse: collapse;
+    border:1px solid #333;
+}
+table {
   border-collapse: collapse;
   border: 1px solid #03476F;
-  font: normal 11px verdana, arial, helvetica, sans-serif;
+  font: normal 12px verdana, arial, helvetica, sans-serif;
   color: #fff;
   background: #394757;
- }
-
-
-
-
-caption.interior {
-  text-align: center;
-  font: bold 18px arial, helvetica, sans-serif;
+  }
+caption {
+  text-align: left;
+  font: bold 10px arial, helvetica, sans-serif;
   background: transparent;
-  padding:6px 4px 8px 0px;
-  color: #03476F;
+  padding: 06px 4px 8px 4px;
+  color: #fff;
   text-transform: uppercase;
-  }
-td.interior, th.interior {
-  border: 1px dotted #03476F;
-  padding: .4em;
+  border: 1px solid #000;
+}
 
-  }
+td {
+    border: 1px dotted #03476F;
+    padding: 0;
+    text-align: center;
+}
 
-thead.interior th.interior, tfoot th.interior {
+th {
+    padding:0.1px;
+    text-align:center;
+    
+    
+}
+
+thead th, tfoot th {
   font: bold 11px verdana, arial, helvetica, sans-serif;
   border: 1px solid #000;
-  text-align: left;
+  text-align: center;
   background: #333;
   color: #FFFFFF;
-  padding-top:3px;
-  }
-tbody.interior td a {
+  
+}
+tbody td a {
   background: transparent;
   text-decoration: none;
   color: #ccc;
   }
+
 tbody td a:hover {
   background: #C2F64D;
   color: #363636;
   }
-tbody th.interior a {
+tbody th a {
   font: normal 11px verdana, arial, helvetica, sans-serif;
   background: transparent;
   text-decoration: none;
@@ -55,9 +79,18 @@ tbody th a:hover {
   background: transparent;
   color: #363636;
   }
-tbody th, tbody td {
-  vertical-align: top;
-  text-align: left;
+tbody th {
+    vertical-align: center;
+    text-align: left;
+    
+
+}
+
+tbody td {
+  vertical-align: center;
+  text-align: center;
+  /*width: 25px;*/
+  /*padding:0.1em;*/
   }
 tfoot td {
   border: 1px solid #000;
@@ -68,16 +101,17 @@ tfoot td {
 .odd {
   background: #AEE239;
   }
-tbody tr.interior:hover {
+/*tbody tr:hover {
   background: #fff;
   border: 1px solid #03476F;
   color: #333;
+  }*/
+ tbody tr{
+  color: #fff;
   }
- tbody tr.interior{
-  color: #ccc;
-  }
-tbody tr:hover th,
+
+/*tbody tr:hover th,
 tbody tr.odd:hover th {
   background: #fff;
   color: #FFFFFF;
-  }
+  }*/

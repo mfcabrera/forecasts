@@ -1,16 +1,23 @@
-<table border="1" >
-  <tbody >
+<table>
+  <% if caption %>
+  <caption>
+    <%= @fpoint.name %> - WAVE <%= @meta.noaa_filename.upcase.gsub(".GRIB.GRIB2","") %> 
+  </caption>
+  <%end%>
+
+  <thead>
     <tr>
-      <th>[Forecast Description]</th>
+      <th>[WHERE TO SURF - LOGO]</th>
+      
       <% st_init.upto st_end do |i| %>
       <th>
-        <%= @dates[i].forecast_date.strftime(@date_format) %>
+        <%=@dates[i].forecast_date.strftime(@date_format) %>
       </th>
   <% end %>
     </tr>
     
-    <tr >
-      <th >Local Time</th>
+    <tr>
+      <th>Local Time</th>
       <% st_init.upto st_end do |i| %>
       <th>
         <%= @dates[i].forecast_date.strftime(@time_format) %>
@@ -30,10 +37,27 @@
       </th>
       <%end%>
     </tr>
+  </thead>
+  <tbody>
+    <% 
+         var = @variables.find {|v| v.name == 'SURFZ'}
+    %>
+    
+<%= render(:partial =>'common_var_entry.html', :locals =>{:all=>@all,:var_name => var.name,:human_name=>var.human_name, :start_at=>st_init, :max=>st_end} )%>
 
-<% @variables.each  do |var| %>
-<%= render(:partial =>'common_var_entry.html', :locals =>
-{:all=>@all,:var_name => var.name,:human_name=>var.human_name, :start_at=>st_init, :max=>st_end} )%>
+<% @variables.find_all{|v| v.name != 'SURFZ' }.each  do |var| %>
+
+<%= render(:partial =>'common_var_entry.html', :locals =>{:all=>@all,:var_name => var.name,:human_name=>var.human_name, :start_at=>st_init, :max=>st_end} )%>
+
 <% end %>
+
   </tbody>
+
+  <!-- <tfoot> -->
+  <!--   <tr> -->
+  <!--     <th> -->
+  <!--       RICO MAMI -->
+  <!--     </th> -->
+  <!--   </tr>       -->
+  <!-- </tfoot> -->
 </table>
