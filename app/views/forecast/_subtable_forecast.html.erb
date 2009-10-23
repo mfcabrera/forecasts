@@ -7,11 +7,11 @@
 
   <thead>
     <tr>
-      <th>[WHERE TO SURF - LOGO]</th>
+      <th>[LOGO  WHERETOSURF]</th>
       
       <% st_init.upto st_end do |i| %>
       <th>
-        <%=@dates[i].forecast_date.strftime(@date_format) %>
+        <%=inject_br @dates[i].forecast_date.strftime(@date_format) %>
       </th>
   <% end %>
     </tr>
@@ -39,13 +39,15 @@
     </tr>
   </thead>
   <tbody>
-    <% 
-         var = @variables.find {|v| v.name == 'SURFZ'}
-    %>
-    
-<%= render(:partial =>'common_var_entry.html', :locals =>{:all=>@all,:var_name => var.name,:human_name=>var.human_name, :start_at=>st_init, :max=>st_end} )%>
 
-<% @variables.find_all{|v| v.name != 'SURFZ' }.each  do |var| %>
+<%surf_var = @variables.find {|z| z.name == 'SURFZ'  } %>  
+
+ <%= render(:partial => 'surf_size_entry.html',:locals =>
+    {:all=>@all,:start_at=>st_init, :max=>st_end,:human_name=>surf_var.human_name })  %>
+    
+
+ <% @variables.find_all{|z| z.name != 'SURFZ'}.each  do |var| %>
+
 
 <%= render(:partial =>'common_var_entry.html', :locals =>{:all=>@all,:var_name => var.name,:human_name=>var.human_name, :start_at=>st_init, :max=>st_end} )%>
 
@@ -53,11 +55,4 @@
 
   </tbody>
 
-  <!-- <tfoot> -->
-  <!--   <tr> -->
-  <!--     <th> -->
-  <!--       RICO MAMI -->
-  <!--     </th> -->
-  <!--   </tr>       -->
-  <!-- </tfoot> -->
 </table>

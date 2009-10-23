@@ -1,0 +1,118 @@
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "forecast_points" [0m
+
+
+Processing ForecastPointsController#create (for 0.0.0.0 at 2009-10-15 23:25:28) [POST]
+  Parameters: {"forecast_point"=>{}}
+  [4;35;1mForecastPoint Create (1.1ms)[0m   [0mINSERT INTO "forecast_points" ("lon", "name", "throttle", "lat") VALUES(NULL, NULL, NULL, NULL)[0m
+Redirected to http://test.host/forecast_points/2053932786
+Completed in 11ms (DB: 4) | 302 Found [http://test.host/forecast_points?]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "forecast_points" [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "forecast_points" [0m
+  [4;36;1mForecastPoint Load (0.4ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#destroy (for 0.0.0.0 at 2009-10-15 23:25:28) [DELETE]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mForecastPoint Load (0.5ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+  [4;36;1mForecastPoint Destroy (0.4ms)[0m   [0;1mDELETE FROM "forecast_points" WHERE "id" = 2053932785[0m
+Redirected to http://test.host/forecast_points
+Completed in 4ms (DB: 2) | 302 Found [http://test.host/forecast_points/2053932785]
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "forecast_points" [0m
+  [4;36;1mForecastPoint Load (0.5ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#edit (for 0.0.0.0 at 2009-10-15 23:25:28) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mForecastPoint Load (0.5ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+Rendering template within layouts/forecast_points
+Rendering forecast_points/edit
+Completed in 53ms (View: 51, DB: 1) | 200 OK [http://test.host/forecast_points/2053932785/edit]
+
+
+Processing ForecastPointsController#index (for 0.0.0.0 at 2009-10-15 23:25:29) [GET]
+  [4;36;1mForecastPoint Load (0.6ms)[0m   [0;1mSELECT * FROM "forecast_points" [0m
+Rendering template within layouts/forecast_points
+Rendering forecast_points/index
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://test.host/forecast_points]
+
+
+Processing ForecastPointsController#new (for 0.0.0.0 at 2009-10-15 23:25:29) [GET]
+Rendering template within layouts/forecast_points
+Rendering forecast_points/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://test.host/forecast_points/new]
+  [4;35;1mForecastPoint Load (0.6ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#show (for 0.0.0.0 at 2009-10-15 23:25:29) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;36;1mForecastPoint Load (0.7ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+Rendering template within layouts/forecast_points
+Rendering forecast_points/show
+Completed in 5ms (View: 3, DB: 1) | 200 OK [http://test.host/forecast_points/2053932785]
+  [4;35;1mForecastPoint Load (0.5ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#update (for 0.0.0.0 at 2009-10-15 23:25:29) [PUT]
+  Parameters: {"forecast_point"=>{}, "id"=>"2053932785"}
+  [4;36;1mForecastPoint Load (1.5ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+Redirected to http://test.host/forecast_points/2053932785
+Completed in 5ms (DB: 2) | 302 Found [http://test.host/forecast_points/2053932785?]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "forecast_points" [0m
+
+
+Processing ForecastPointsController#create (for 0.0.0.0 at 2009-10-16 21:56:37) [POST]
+  Parameters: {"forecast_point"=>{}}
+  [4;35;1mForecastPoint Create (0.9ms)[0m   [0mINSERT INTO "forecast_points" ("lon", "name", "throttle", "lat") VALUES(NULL, NULL, NULL, NULL)[0m
+Redirected to http://test.host/forecast_points/2053932786
+Completed in 9ms (DB: 4) | 302 Found [http://test.host/forecast_points?]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "forecast_points" [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "forecast_points" [0m
+  [4;36;1mForecastPoint Load (0.4ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#destroy (for 0.0.0.0 at 2009-10-16 21:56:37) [DELETE]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mForecastPoint Load (0.6ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+  [4;36;1mForecastPoint Destroy (3.7ms)[0m   [0;1mDELETE FROM "forecast_points" WHERE "id" = 2053932785[0m
+Redirected to http://test.host/forecast_points
+Completed in 7ms (DB: 5) | 302 Found [http://test.host/forecast_points/2053932785]
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "forecast_points" [0m
+  [4;36;1mForecastPoint Load (0.5ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#edit (for 0.0.0.0 at 2009-10-16 21:56:37) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;35;1mForecastPoint Load (0.5ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+Rendering template within layouts/forecast_points
+Rendering forecast_points/edit
+Completed in 23ms (View: 21, DB: 1) | 200 OK [http://test.host/forecast_points/2053932785/edit]
+
+
+Processing ForecastPointsController#index (for 0.0.0.0 at 2009-10-16 21:56:37) [GET]
+  [4;36;1mForecastPoint Load (0.7ms)[0m   [0;1mSELECT * FROM "forecast_points" [0m
+Rendering template within layouts/forecast_points
+Rendering forecast_points/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://test.host/forecast_points]
+
+
+Processing ForecastPointsController#new (for 0.0.0.0 at 2009-10-16 21:56:37) [GET]
+Rendering template within layouts/forecast_points
+Rendering forecast_points/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://test.host/forecast_points/new]
+  [4;35;1mForecastPoint Load (0.6ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#show (for 0.0.0.0 at 2009-10-16 21:56:37) [GET]
+  Parameters: {"id"=>"2053932785"}
+  [4;36;1mForecastPoint Load (0.5ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+Rendering template within layouts/forecast_points
+Rendering forecast_points/show
+Completed in 6ms (View: 3, DB: 1) | 200 OK [http://test.host/forecast_points/2053932785]
+  [4;35;1mForecastPoint Load (0.5ms)[0m   [0mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+
+
+Processing ForecastPointsController#update (for 0.0.0.0 at 2009-10-16 21:56:37) [PUT]
+  Parameters: {"forecast_point"=>{}, "id"=>"2053932785"}
+  [4;36;1mForecastPoint Load (0.5ms)[0m   [0;1mSELECT * FROM "forecast_points" WHERE ("forecast_points"."id" = 2053932785) [0m
+Redirected to http://test.host/forecast_points/2053932785
+Completed in 4ms (DB: 1) | 302 Found [http://test.host/forecast_points/2053932785?]

@@ -3,8 +3,6 @@
 <!--   <li>lon: <%=@lon%> </li> -->
 <!-- </ul> -->
 
-
-<%= @meta.grib_date %> </td>
 <div class="forecast-table">
   <%= render(:partial =>'subtable_forecast.html', :locals =>  {:st_init=>@f_offset,:st_end=>@max_per_row-1,:caption=>true } )%>
 </div>

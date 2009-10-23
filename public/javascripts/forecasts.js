@@ -21,12 +21,12 @@ function getLocalTime (utc_time) {
     var hours = utc_time;
     
     if(hours + offset <= 0) {
-        day = -1;
+        day = "-1";
         hours = 24 + hours + offset;
     }
     else  if(hours + offset > 24){
         hours = hours - 24;
-        day = +1;
+        day = "+1";
     }
     else {
         hours = hours + offset + 0

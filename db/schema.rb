@@ -36,7 +36,9 @@ ActiveRecord::Schema.define(:version => 299901015011303) do
     t.string   "name"
     t.string   "human_name"
     t.string   "description"
+    t.string   "unit"
     t.float    "throttle"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

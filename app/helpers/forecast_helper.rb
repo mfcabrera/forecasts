@@ -3,34 +3,85 @@ module ForecastHelper
 #     var = Variable.find_by_name(var_name)
 #     name = var.nil? ? var_name  : var.human_name    
 #   end
+
+
   def formater_funtion_for_var(varname)
     case varname
     when "WDIR","DIRPW" then
-      lambda {|value| 
-        value = value.to_f
-        image_name = case value
-                     when  0..15 then "00"
-                     when  15..45  then "01"
-                     when  45..75  then "02"    
-                     when  75..105  then "03"    
-                     when  105..135  then "04"    
-                     when  135..165 then "05"
-                     when  165..195 then "06"
-                     when  195..225 then "07" 
-                     when  225..255 then "08" 
-                     when  255..285 then "09"
-                     when  285..315 then "010"
-                     when  315..345 then "011"
-                     when  345..360 then "00"
-                     end
-        
-        puts value
-        image_tag("#{image_name}.png", :border=>0, :aling =>"center")
-
+      lambda {|var| 
+        formater_for_direction(var)        
+      }
+    when "SURFZ" then
+      lambda { |var|  
+        formater_for_surf_size2(var)
       }
     else
-      lambda {|value|  "%.1f" % value }
+      lambda {|var|  "%.1f" % var.value }
     end
+  end
+
+
+  def formater_for_surf_size2(var)
+    ""
+  end
+    
+
+  def formater_for_surf_size(var)
+    value = var.value.to_f
+    delta = value*@fpoint.throttle
+    
+    return ("%.1f" % value)  if delta == 0.0
+    
+    fl = (value - delta)*3.2808399
+    cl = (value + delta)*3.2808399
+    
+    #str = ("%.1f" % (fl*3.2808399)  )+ "&nbsp;-&nbsp;" +("%.1f" % (cl*3.2808399))
+    #"<span style=\"font-size:10px;\">"+str+"</span>"
+   # ""
+    ["%.1f" % fl,"%.1f" % cl]
+  end
+
+
+  def formater_for_swell_class(var)
+    
+
+
+    
+  end
+  
+
+    
+  def formater_for_direction(var)
+    value = var.value.to_f
+    angle_code = case value
+                 when  0..11.25   then "N" 
+                 when  11.25..33.75  then "NNE"
+                 when  33.75..56.25  then "NE"  
+                 when  56.25..78.5  then "ENE"    
+                 when  78.5..101   then "E"
+                 when  101..123.5  then "ESE"    
+                 when  123.5..146 then "SE"
+                 when  146..168.5 then "SSE"
+                 when  168.5..191 then "S"
+                 when  191..213.5 then "SSW"
+                 when  213.5..236 then "SW"
+                 when  236..258.5 then "WSW" 
+                 when  258.5..281 then "W" 
+                 when  281..303.5 then "WNW"
+                 when  303.5..326 then "NW"
+                 when  326..348.75 then "NNW"
+                 when  348.75..360 then "N"
+                 end
+    
+    "<span style=\"font-size:9px;\">" +  angle_code +
+      "</span>" + "<br/>" + image_tag("#{angle_code}.png", :border=>0, :aling =>"center")  
+      
+    
+    
+  end
+    
+  def inject_br(str)
+    str.split.join("<br/>")
   end
   
 end

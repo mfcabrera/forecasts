@@ -1,7 +1,5 @@
 class ForecastController < ApplicationController
   
-
-
   layout 'standard'
   def view
     
@@ -21,6 +19,7 @@ class ForecastController < ApplicationController
         
     unless @fpoint
       render :nothing => true
+      return
     end
 
 
@@ -56,7 +55,7 @@ class ForecastController < ApplicationController
       @dates_by_day[formated_date] << date.forecast_date.strftime("%Hh") 
     }
     @keys = @dates_by_day.keys.sort
-    @variables = Variable.find(:all)
+    @variables = Variable.find(:all,:order => "position")
     @max_per_row = @f_offset + @dates.size / 2                  
     
   end

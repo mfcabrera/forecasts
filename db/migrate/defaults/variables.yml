@@ -1,16 +1,18 @@
 1:
   id: 1
   name: HTSGW
-  human_name: Swell Size
+  human_name: Swell Size (m)
   description: Swell Size
+  position: 3
   created_at: nil
   updated_at: nil
   
 2:
   id: 2 
   name: WIND
-  human_name: Wind Speed
+  human_name: Wind Speed (m/s)
   description: Wind Speed
+  position: 7
   created_at: nil
   updated_at: nil
 
@@ -19,7 +21,8 @@
   id: 3 
   name: WDIR
   human_name: Wind Direction
-  description: Ground or water surface Wind direction (from which blowing) 
+  description: Ground or water surface Wind direction (from which blowing)
+  position: 6
   created_at: nil
   updated_at: nil
 
@@ -27,24 +30,27 @@
 4:
   id: 4 
   name: PERPW
-  human_name: Swell Period
+  human_name: Swell Period (s)
   description: Ground or water surface Primary wave mean period [s]
+  position: 4
   created_at: nil
   updated_at: nil
 
 5:
   id: 5 
   name: DIRPW
-  human_name: Swell Direction
+  human_name: Swell Direction 
   description: Ground or water surface Primary wave direction [Degree true]
+  position: 2
   created_at: nil
   updated_at: nil
 
 6:
   id: 6 
   name: SURFZ
-  human_name: Surf Size
+  human_name: Surf Size (ft)
   description: The calculated Surf Size
+  position: 1
   created_at: nil
   updated_at: nil
 
@@ -54,5 +60,6 @@
   name: SWELLC
   human_name: Swell Class
   description: The calculated Swell Class
+  position: 5
   created_at: nil
   updated_at: nil

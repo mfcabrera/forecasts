@@ -13,6 +13,7 @@ div.content {
     margin:0px;
 }
 
+
 div.forecast-table {
     border:0px;
     padding:0px;
@@ -23,9 +24,18 @@ div.forecast-table {
 table {
   border-collapse: collapse;
   border: 1px solid #03476F;
-  font: normal 12px verdana, arial, helvetica, sans-serif;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
   color: #fff;
   background: #394757;
+  vertical-align:bottom;
+  }
+table.surf {
+  /*  border-collapse: collapse;*/
+   border: 0px solid;
+    padding-top: 3px;
+    font: normal 11px verdana, arial, helvetica, sans-serif;
+ /* color: #fff;
+  background: #394757;*/
   }
 caption {
   text-align: left;
@@ -40,6 +50,8 @@ caption {
 td {
     border: 1px dotted #03476F;
     padding: 0;
+    padding-left:1px;
+    padding-right:1px;
     text-align: center;
 }
 
