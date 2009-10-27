@@ -15,6 +15,8 @@ module ForecastHelper
       lambda { |var|  
         formater_for_surf_size2(var)
       }
+    when "SWELLC"
+      lambda { |var| formater_for_swell_class(var) }
     else
       lambda {|var|  "%.1f" % var.value }
     end
@@ -28,12 +30,15 @@ module ForecastHelper
 
   def formater_for_surf_size(var)
     value = var.value.to_f
-    delta = value*@fpoint.throttle
+    delta_cl = value*@fpoint.upper_throttle
+    delta_fl = value*@fpoint.lower_throttle
     
-    return ("%.1f" % value)  if delta == 0.0
+    delta_cl = 1.0 if delta_cl == 0.0
+    delta_fl = 1.0 if delta_fl == 0.0
+
     
-    fl = (value - delta)*3.2808399
-    cl = (value + delta)*3.2808399
+    fl = (value - delta_fl)*3.2808399
+    cl = (value + delta_cl)*3.2808399
     
     #str = ("%.1f" % (fl*3.2808399)  )+ "&nbsp;-&nbsp;" +("%.1f" % (cl*3.2808399))
     #"<span style=\"font-size:10px;\">"+str+"</span>"
@@ -43,12 +48,18 @@ module ForecastHelper
 
 
   def formater_for_swell_class(var)
-    
-
-
-    
+    value = var.value.to_i
+    swell_class =  case value
+                   when 0..3 then 0
+                   when 4..11 then 1
+                   when 12..23 then 2
+                   when 24..31 then 3
+                   when 32..39 then 4
+                   when 40..47 then 5
+                   when 48..59 then 6
+                   else 7
+                   end
   end
-  
 
     
   def formater_for_direction(var)

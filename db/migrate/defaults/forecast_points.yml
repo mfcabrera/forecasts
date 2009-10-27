@@ -3,7 +3,8 @@
   lat: -34
   lon: 151.25
   name: Sidney
-  throttle: 0.0
+  upper_throttle: 0.15
+  lower_throttle: 0.05
   
 
 2:
@@ -11,13 +12,16 @@
   lat: -35
   lon: 151.25
   name: Wollongong
-  throttle: 0.0
+  upper_throttle: 0.0
+  lower_throttle: 0.0
 
 3:
   id: 3
   lat: -33
   lon: 152.5
   name: Newcastle
-  throttle: 0.0
+  upper_throttle: 0.0
+  lower_throttle: 0.0
+
   
 

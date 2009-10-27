@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(:version => 299901015011303) do
     t.float  "lat"
     t.float  "lon"
     t.string "name"
-    t.float  "throttle"
+    t.float  "upper_throttle"
+    t.float  "lower_throttle"
   end
 
   create_table "forecasts", :force => true do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(:version => 299901015011303) do
   create_table "grib_meta", :force => true do |t|
     t.timestamp "grib_date"
     t.string    "noaa_filename"
+    t.string    "model_run"
   end
 
   create_table "variables", :force => true do |t|
