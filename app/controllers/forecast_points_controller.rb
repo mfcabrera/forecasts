@@ -45,7 +45,7 @@ class ForecastPointsController < ApplicationController
     respond_to do |format|
       if @forecast_point.save
         flash[:notice] = 'ForecastPoint was successfully created.'
-        format.html { redirect_to(@forecast_point) }
+        format.html { redirect_to(:action => "index") }
         format.xml  { render :xml => @forecast_point, :status => :created, :location => @forecast_point }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class ForecastPointsController < ApplicationController
     respond_to do |format|
       if @forecast_point.update_attributes(params[:forecast_point])
         flash[:notice] = 'ForecastPoint was successfully updated.'
-        format.html { redirect_to(@forecast_point) }
+        format.html { redirect_to :action => "index" }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

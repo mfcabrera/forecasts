@@ -1,28 +1,41 @@
-<h1>Editing forecast_point</h1>
 
+
+<table>
+<th colspan="2">Edit Existing Point</th>
 <% form_for(@forecast_point) do |f| %>
-  <%= f.error_messages %>
 
-  <p>
-    <%= f.label :lat %><br />
-    <%= f.text_field :lat %>
-  </p>
-  <p>
-    <%= f.label :lon %><br />
-    <%= f.text_field :lon %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :throttle %><br />
-    <%= f.text_field :throttle %>
-  </p>
-  <p>
+<tr><td colspan="2"> <%= f.error_messages %></td></tr>
+
+<tr>
+  <td> <%= f.label :lat %> </td>
+  <td> <%= f.text_field :lat %></td>
+</tr>
+<tr>
+<td><%= f.label :lon %></td>
+<td>    <%= f.text_field :lon %></td>
+
+</tr>
+<tr>
+  <td> <%= f.label :name %> </td>
+  <td>  <%= f.text_field :name %> </td>
+</tr>
+<tr>
+
+<td>    <%= f.label :upper_throttle %></td>
+<td>    <%= f.text_field :upper_throttle %></td>
+</tr>
+
+<tr>
+<td>    <%= f.label :lower_throttle %></td>
+<td>    <%= f.text_field :lower_throttle %></td>
+</tr>
+<tr>
+<td colspan="2">
     <%= f.submit 'Update' %>
-  </p>
+</td>
+</tr>
 <% end %>
 
-<%= link_to 'Show', @forecast_point %> |
-<%= link_to 'Back', forecast_points_path %>
+</table>
+
+<%= link_to '<< Back', forecast_points_path %>

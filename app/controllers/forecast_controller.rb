@@ -1,6 +1,7 @@
 class ForecastController < ApplicationController
   
   layout 'standard'
+  
   def view
     
     @date_format = "%a %d"
@@ -11,10 +12,10 @@ class ForecastController < ApplicationController
     
     float_regex =  /^-?[0-9]+\.?[0-9]*$/
     
-    @lat = params[:lat]
-    @lon = params[:lon]
-
+    @lat = fix_number(params[:lat])
+    @lon = fix_number(params[:lon])
     
+        
     @fpoint = ForecastPoint.find_by_lat_and_lon(@lat,@lon)
         
     unless @fpoint
@@ -23,16 +24,16 @@ class ForecastController < ApplicationController
     end
 
 
-    unless ( @lat =~ float_regex and  @lon =~ float_regex )
-      #TODO: Error pages when the parameters are malformed
-      render :nothing => true            
-    else
-      @all = Forecast.find_all_by_lat_and_lon(@lat,@lon)
-      if @all.size == 0
-        #TODO: put an empty message
-        render :nothing => true        
-      end
+    # unless ( @lat =~ float_regex and  @lon =~ float_regex )
+    #   #TODO: Error pages when the parameters are malformed
+    #   render :nothing => true            
+    # else
+    @all = Forecast.find_all_by_lat_and_lon(@lat,@lon)
+    if @all.size == 0
+      #TODO: put an empty message
+      render :nothing => true        
     end
+    
 
     #get forecast metadata
     @meta = GribMeta.find(:all)[0]
@@ -59,5 +60,16 @@ class ForecastController < ApplicationController
     @max_per_row = @f_offset + @dates.size / 2                  
     
   end
+
+  private
+  def fix_number(num)
+    num = num.to_f
+    if (num-(num.to_i) ) > 0
+      num
+    else
+      num.to_i
+    end
+  end
+  
 
 end

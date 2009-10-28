@@ -3,8 +3,7 @@ body {
     background: #333;
     border:0px;
     padding:0px;
-    margin:0px;
-    
+    margin:0px;    
 }
 
 div.content {
@@ -93,9 +92,6 @@ tbody th a:hover {
   }
 tbody th {
     vertical-align: center;
-    text-align: left;
-    
-
 }
 
 tbody td {

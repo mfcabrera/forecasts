@@ -1,11 +1,14 @@
-<h1>Listing forecast_points</h1>
+<h1>Configured Points for Forecast</h1>
 
 <table>
   <tr>
     <th>Lat</th>
     <th>Lon</th>
     <th>Name</th>
-    <th>Throttle</th>
+    <th>Upper Throttle</th>
+    <th>Lower Throttle</th>
+    <th>Test</th>
+    <th colspan="2">Action</th>
   </tr>
 
 <% @forecast_points.each do |forecast_point| %>
@@ -13,8 +16,9 @@
     <td><%=h forecast_point.lat %></td>
     <td><%=h forecast_point.lon %></td>
     <td><%=h forecast_point.name %></td>
-    <td><%=h forecast_point.throttle %></td>
-    <td><%= link_to 'Show', forecast_point %></td>
+    <td><%=h forecast_point.upper_throttle %></td>
+    <td><%=h forecast_point.lower_throttle %></td>
+    <td><a href="/forecast/view?lat=<%=forecast_point.lat%>&lon=<%=forecast_point.lon%>">Click Here</a></td>
     <td><%= link_to 'Edit', edit_forecast_point_path(forecast_point) %></td>
     <td><%= link_to 'Destroy', forecast_point, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -22,5 +26,6 @@
 </table>
 
 <br />
-
-<%= link_to 'New forecast_point', new_forecast_point_path %>
+<div class="new">
+<%= link_to 'Add a Point ', new_forecast_point_path %>
+</div>

@@ -17,12 +17,15 @@ a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
 .fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  padding: 1px;
+  border: 1px solid red;
+/*  background-color: red;*/
+  display: iniline;
+  
 }
 
 #errorExplanation {
+  text-aling:left;
   width: 400px;
   border: 2px solid red;
   padding: 7px;
@@ -35,20 +38,24 @@ a:hover { color: #fff; background-color:#000; }
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
-  font-size: 12px;
+  font-size: 11px;
   margin: -7px;
   background-color: #c00;
   color: #fff;
 }
 
 #errorExplanation p {
-  color: #333;
+  color: #000;
   margin-bottom: 0;
   padding: 5px;
+  text-align:left;
 }
 
 #errorExplanation ul li {
-  font-size: 12px;
+  text-align:left;
+  color: #000;  
+  font-size: 10px;
   list-style: square;
+  font-size:11px;
 }
 
