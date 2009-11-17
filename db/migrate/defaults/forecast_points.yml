@@ -5,8 +5,8 @@
   name: Sidney
   upper_throttle: 0.15
   lower_throttle: 0.05
+  utc: 10
   
-
 2:
   id: 2
   lat: -35
@@ -14,6 +14,7 @@
   name: Wollongong
   upper_throttle: 0.0
   lower_throttle: 0.0
+  utc: 10
 
 3:
   id: 3
@@ -22,6 +23,7 @@
   name: Newcastle
   upper_throttle: 0.0
   lower_throttle: 0.0
+  utc: 10
 
   
 

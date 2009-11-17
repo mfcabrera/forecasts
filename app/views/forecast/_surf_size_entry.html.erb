@@ -1,24 +1,26 @@
 
-  <td height="80" ><%=human_name%></td>
+ 
   
 
   
+
+ <td height="<%= @max_h  %>" ><%=human_name%></td>
 
 <%
   all_var = all.find_all {|item| item.var_name == 'SURFZ'}  
   start_at.upto max do |i|   
   fl,cl = formater_for_surf_size(all_var[i])
-
 %>
 
-   <td width="20"  style="vertical-align: bottom;">
-     <table cellspacing="1" cellpadding="1" border="0" class="surf">
+
+   <td style="vertical-align: bottom;">
+     <table cellspacing="1" cellpadding="1" border="0" class="surf" >
        <tbody>
          <tr>
-           <td width="20" align="center"><%=cl%> </td>
+           <td width="25" align="center"><%=cl%> </td>
          </tr>
          <tr>
-           <td valign="bottom" height="<%=cl.to_i*4 %> " bgcolor="#6ebada" align="center" style= "vertical-align: top;"><%=fl%></td>      </tr>
+           <td  width="25" valign="bottom" height="<%=cl.to_f*ratio %> " bgcolor="#6ebada" align="center" style= "vertical-align: top;"><%=fl%></td>      </tr>
        </tbody>
      </table>
    </td>

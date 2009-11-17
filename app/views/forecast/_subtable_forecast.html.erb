@@ -10,46 +10,62 @@
       <th>[LOGO  WHERETOSURF]</th>
       
       <% st_init.upto st_end do |i| %>
+      <% d = @dates[i].forecast_date %>
       <th>
-        <%=inject_br @dates[i].forecast_date.strftime(@date_format) %>
+        <script type="text/javascript">
+          getLocalDay(<%=d.month%>,<%=d.day%>,<%=d.hour%>)
+        </script>         
+
+          <!-- inject_br @dates[i].forecast_date.strftime(@date_format) -->
       </th>
   <% end %>
     </tr>
-    
-    <tr>
-      <th>Local Time</th>
-      <% st_init.upto st_end do |i| %>
-      <th>
-        <%= @dates[i].forecast_date.strftime(@time_format) %>
-        
-          
-      </th>
-      <%end%>
-    </tr>
+  
     <tr>
       <th>User Time</th>
       <% st_init.upto st_end do |i| %>
+      <% local_hour =  @dates[i].forecast_date.strftime(@time_format) %>
       <th>
         <!-- here we call a js function to put the local time of the person -->
         <script type="text/javascript">
-          getLocalTime(<%= @dates[i].forecast_date.strftime("%H") %>)
+          getUserTime(<%=local_hour%>, <%= @fpoint.utc %>)
         </script>         
       </th>
       <%end%>
     </tr>
+
+     <tr>
+      <th>Local Time</th>
+      <% st_init.upto st_end do |i| %>
+      <% local_hour = @dates[i].forecast_date.strftime(@time_format) %>
+      
+
+      <th>
+        <%= format_hour(local_hour) %> 
+        <script type="text/javascript">
+          getLocalTimeOffset(<%=local_hour%>)
+        </script>              
+      </th>
+      <%end%>
+    </tr>
+
+
   </thead>
   <tbody>
 
-<%surf_var = @variables.find {|z| z.name == 'SURFZ'  } %>  
+<% surf_var = @variables.find {|z| z.name == 'SURFZ'  } %>  
 
  <%= render(:partial => 'surf_size_entry.html',:locals =>
-    {:all=>@all,:start_at=>st_init, :max=>st_end,:human_name=>surf_var.human_name })  %>
+    {:all=>@all,:start_at=>st_init,
+    :max=>st_end,:human_name=>surf_var.human_name,:max_h=>@max_h,:ratio=>ratio }) 
+   
+ %>
     
 
  <% @variables.find_all{|z| z.name != 'SURFZ'}.each  do |var| %>
 
 
-<%= render(:partial =>'common_var_entry.html', :locals =>{:all=>@all,:var_name => var.name,:human_name=>var.human_name, :start_at=>st_init, :max=>st_end} )%>
+<%= render(:partial =>'common_var_entry.html', :locals=>{:all=>@all,:var_name => var.name,:human_name=>var.human_name,:start_at=>st_init, :max=>st_end } )%>
 
 <% end %>
 

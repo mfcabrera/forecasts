@@ -23,6 +23,11 @@
   <%=h @forecast_point.lower_throttle%>
 </p>
 
+<p>
+  <b>UTC Offset</b>
+  <%=h @forecast_point.utc%>
+</p>
+
 
 <%= link_to 'Edit', edit_forecast_point_path(@forecast_point) %> |
 <%= link_to 'Back', forecast_points_path %>

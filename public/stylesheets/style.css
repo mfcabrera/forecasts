@@ -17,7 +17,7 @@ div.forecast-table {
     border:0px;
     padding:0px;
     background: #333;
-    border-collapse: collapse;
+    *border-collapse: collapse;*
     border:1px solid #333;
 }
 table {
@@ -30,11 +30,13 @@ table {
   }
 table.surf {
   /*  border-collapse: collapse;*/
-   border: 0px solid;
+    border: 0px solid;
     padding-top: 3px;
     font: normal 11px verdana, arial, helvetica, sans-serif;
- /* color: #fff;
-  background: #394757;*/
+    display:inline-block;
+    width: 20px;
+/*    color: #fff;
+   background: #394757;*/
   }
 caption {
   text-align: left;
@@ -117,6 +119,10 @@ tfoot td {
  tbody tr{
   color: #fff;
   }
+
+.offset {
+ font-size: 8px;
+}
 
 /*tbody tr:hover th,
 tbody tr.odd:hover th {

@@ -3,10 +3,12 @@ class ForecastController < ApplicationController
   layout 'standard'
   
   def view
+
+    @max_h = 80 #maximum height for surf size table
     
     @date_format = "%a %d"
-    @time_format = "%Hh"
-    @f_offset = 3 #when are we going to start showing the forecasts?
+    @time_format = "%H"
+    @f_offset = 4 #when are we going to start showing the forecasts?
     @max_per_row = 31 #how many per row
     
     
@@ -33,7 +35,6 @@ class ForecastController < ApplicationController
       #TODO: put an empty message
       render :nothing => true        
     end
-    
 
     #get forecast metadata
     @meta = GribMeta.find(:all)[0]
@@ -70,6 +71,7 @@ class ForecastController < ApplicationController
       num.to_i
     end
   end
-  
+
+
 
 end

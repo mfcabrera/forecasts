@@ -12,11 +12,12 @@
 ActiveRecord::Schema.define(:version => 299901015011303) do
 
   create_table "forecast_points", :force => true do |t|
-    t.float  "lat"
-    t.float  "lon"
-    t.string "name"
-    t.float  "upper_throttle"
-    t.float  "lower_throttle"
+    t.float   "lat"
+    t.float   "lon"
+    t.string  "name"
+    t.float   "upper_throttle"
+    t.float   "lower_throttle"
+    t.integer "utc"
   end
 
   create_table "forecasts", :force => true do |t|
@@ -38,7 +39,6 @@ ActiveRecord::Schema.define(:version => 299901015011303) do
     t.string   "name"
     t.string   "human_name"
     t.string   "description"
-    t.string   "unit"
     t.float    "throttle"
     t.integer  "position"
     t.datetime "created_at"

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module ForecastHelper
 #   def human_name(var_name)
 #     var = Variable.find_by_name(var_name)
@@ -26,23 +27,30 @@ module ForecastHelper
   def formater_for_surf_size2(var)
     ""
   end
+
+  #TODO: Añadir soporte para calcular  en un subconjunto del surf size
+  def ratio_for_surf_size(all,max_h=0,count=0,skip=0)
+    max_cl = 0.0; 
+    all_var = all.find_all {|item| item.var_name == 'SURFZ'}  
+    all_var.each { |item|
+      fl,cl = formater_for_surf_size(item)
+      cur_cl = cl.to_f
+      max_cl = cur_cl if cur_cl > max_cl 
+    }
+    ratio = (max_h/max_cl).to_i    
+  end
+  
     
 
   def formater_for_surf_size(var)
     value = var.value.to_f
-    delta_cl = value*@fpoint.upper_throttle
-    delta_fl = value*@fpoint.lower_throttle
     
-    delta_cl = 1.0 if delta_cl == 0.0
-    delta_fl = 1.0 if delta_fl == 0.0
+    cl = value*@fpoint.upper_throttle
+    fl = value*@fpoint.lower_throttle
+    
+    cl = value if cl == 0.0
+    fl = value if fl == 0.0
 
-    
-    fl = (value - delta_fl)*3.2808399
-    cl = (value + delta_cl)*3.2808399
-    
-    #str = ("%.1f" % (fl*3.2808399)  )+ "&nbsp;-&nbsp;" +("%.1f" % (cl*3.2808399))
-    #"<span style=\"font-size:10px;\">"+str+"</span>"
-   # ""
     ["%.1f" % fl,"%.1f" % cl]
   end
 
@@ -88,6 +96,22 @@ module ForecastHelper
       "</span>" + "<br/>" + image_tag("#{angle_code}.png", :border=>0, :aling =>"center")  
       
     
+    
+  end
+
+  def format_hour(hour)
+    hour+"h"        
+  end
+
+  def utc_to_local(utc_time,offset)
+    hour = utc_time.to_i + offset.to_i
+    
+    local_hour = case 
+                 when hour > 24 then hour  - 24
+                 when hour < 0 then  hour  + 24
+                 else hour
+                 end    
+                  
     
   end
     
