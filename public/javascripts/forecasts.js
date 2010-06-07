@@ -28,12 +28,11 @@ function getUserTime (local_time,local_utc) {
             day = "-1";
         }
         else  if(hours + offset  > 24){
-            hours = hours  - 24;
+            hours = hours + offset  - 24;
             day = "+1";
         }
         else {
-            hours = hours + offset + 0
-            
+            hours = hours + offset             
         }
        
         

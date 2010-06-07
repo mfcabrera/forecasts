@@ -5,14 +5,18 @@
 
 <% ratio = ratio_for_surf_size(@all,@max_h)  %>
 
+
+
 <div class="forecast-table">
   <%= render(:partial =>'subtable_forecast.html', :locals =>
   {:st_init=>@f_offset,:st_end=>@max_per_row-1,:caption=>true,
   :ratio => ratio } )%>
 </div>
 
+<%if @is_registered %>
 <div class="forecast-table">  
   <!--Second Row of the  main toplevel tl -->
   <%= render(:partial =>'subtable_forecast.html', :locals =>
              {:st_init=>@max_per_row,:st_end=>@dates.size-1,:caption=>false, :ratio=>ratio } )%>
 </div>
+<%end%>

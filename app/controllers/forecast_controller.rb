@@ -10,6 +10,7 @@ class ForecastController < ApplicationController
     @time_format = "%H"
     @f_offset = 4 #when are we going to start showing the forecasts?
     @max_per_row = 31 #how many per row
+    @unregistered_num_of_entries = 29
     
     
     float_regex =  /^-?[0-9]+\.?[0-9]*$/
@@ -38,9 +39,15 @@ class ForecastController < ApplicationController
 
     #get forecast metadata
     @meta = GribMeta.find(:all)[0]
+    @is_registered = registered_user? 
+    
+    unless @is_registered
+      limit = "limit #{@unregistered_num_of_entries}"
+    end
 
     
-    @dates = Forecast.find_by_sql("select distinct forecast_date from  forecasts")
+    @dates = Forecast.find_by_sql("select distinct forecast_date from  forecasts  #{limit}")
+    
     @dates_by_day =  {}
     @dates.sort! {|a,b| 
           
@@ -58,7 +65,13 @@ class ForecastController < ApplicationController
     }
     @keys = @dates_by_day.keys.sort
     @variables = Variable.find(:all,:order => "position")
-    @max_per_row = @f_offset + @dates.size / 2                  
+    if @is_registered
+      @max_per_row = @f_offset + @dates.size / 2                 
+    else
+      @max_per_row = @unregistered_num_of_entries               
+    end
+
+    
     
   end
 
@@ -70,6 +83,13 @@ class ForecastController < ApplicationController
     else
       num.to_i
     end
+  end
+  
+  def registered_user?
+    unless  cookies[:DOTNETNUKE].nil? and cookies[:authentication].nil?
+     true
+    end  
+    false      
   end
 
 

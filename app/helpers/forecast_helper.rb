@@ -100,7 +100,7 @@ module ForecastHelper
   end
 
   def format_hour(hour)
-    hour+"h"        
+    hour.to_s+"h"        
   end
 
   def utc_to_local(utc_time,offset)
