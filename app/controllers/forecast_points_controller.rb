@@ -1,6 +1,8 @@
 class ForecastPointsController < ApplicationController
   # GET /forecast_points
   # GET /forecast_points.xml
+  before_filter :login_required
+  
   def index
     @forecast_points = ForecastPoint.all
 
@@ -82,4 +84,22 @@ class ForecastPointsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def login_required
+
+    if !session[:id]
+      
+      authenticate_or_request_with_http_basic do |username, password|
+        user = User.find_by_username(username)        
+        
+        if user and user.password_matches?(password)
+          session[:id] = user.id        
+          true
+        else
+          false
+        end
+      end
+    end
+  end
+
 end

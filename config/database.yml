@@ -1,10 +1,21 @@
 # SQLite version 3.x
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
+
 development:
-  adapter: sqlite3
-  database: ../deancode/gribdata-test.db
+  adapter: mysql
+  database: forecasts
+  username: forecast
+  password: f0r3c4stdb
+  host: localhost
   pool: 5
   timeout: 5000
+
+
+# development:
+#   adapter: sqlite3
+#   database: ../deancode/gribdata.db
+#   pool: 5
+#   timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

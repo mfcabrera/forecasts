@@ -21,18 +21,26 @@ ActiveRecord::Schema.define(:version => 299901015011303) do
   end
 
   create_table "forecasts", :force => true do |t|
-    t.timestamp "grib_date"
-    t.timestamp "forecast_date"
-    t.string    "var_name"
-    t.string    "lat"
-    t.string    "lon"
-    t.float     "value"
+    t.datetime "grib_date"
+    t.datetime "forecast_date"
+    t.string   "var_name"
+    t.string   "lat"
+    t.string   "lon"
+    t.float    "value"
   end
 
   create_table "grib_meta", :force => true do |t|
-    t.timestamp "grib_date"
-    t.string    "noaa_filename"
-    t.string    "model_run"
+    t.datetime "grib_date"
+    t.string   "noaa_filename"
+    t.string   "model_run"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "variables", :force => true do |t|
