@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 module ForecastHelper
-#   def human_name(var_name)
-#     var = Variable.find_by_name(var_name)
-#     name = var.nil? ? var_name  : var.human_name    
-#   end
 
 
   def formater_funtion_for_var(varname)
@@ -100,12 +96,16 @@ module ForecastHelper
   end
 
   def format_hour(hour)
-    hour.to_s+"h"        
+    if hour < 10
+      "0" + hour.to_s + "h"
+    else
+      hour.to_s + "h"
+    end
   end
 
   def utc_to_local(utc_time,offset)
     hour = utc_time.to_i + offset.to_i
-    
+
     local_hour = case 
                  when hour > 24 then hour  - 24
                  when hour < 0 then  hour  + 24

@@ -41,9 +41,10 @@
       
 
       <th>
-        <%= format_hour(utc_to_local(local_hour,@fpoint.utc)) %> 
+        <% real_time=utc_to_local(local_hour,@fpoint.utc)  %>
+        <%=format_hour(real_time) %> 
         <script type="text/javascript">
-          getLocalTimeOffset(<%=local_hour%>)
+          getLocalTimeOffset(<%=local_hour%>, <%= @fpoint.utc %>)
         </script>              
       </th>
       <%end%>

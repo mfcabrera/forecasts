@@ -86,10 +86,11 @@ class ForecastController < ApplicationController
   end
   
   def registered_user?
+
     unless  cookies[:DOTNETNUKE].nil? and cookies[:authentication].nil?
      true
     end  
-    false      
+    true
   end
 
 

@@ -35,8 +35,8 @@ function getUserTime (local_time,local_utc) {
             hours = hours + offset             
         }
        
-        
-
+    if(hours == 24)
+        hours = 0;
     
     if (hours < 10) {
         hours = "0"+hours;
@@ -132,30 +132,61 @@ function getUserTime (local_time,local_utc) {
   }
 
 
-function daysInMonth(iMonth, iYear)
-{
+function daysInMonth(iMonth, iYear){
 	return 32 - new Date(iYear, iMonth-1, 32).getDate();
 }
 
 
-function getLocalTimeOffset (local_time) {
+function getLocalTimeOffset (local_hours,local_offset) {
 
     var mydate=new Date();
-    var offset = mydate.getTimezoneOffset() / 60;
+    var user_offset = mydate.getTimezoneOffset() / 60;
     var day = 0;
-    var hour = 0;
-    offset = offset * -1;
-    var hours = local_time*1;
-    
-    if(hours + offset  < 0) {
-        hours = 24 + hours + offset;
-        day="+1";
-    }
-    else  if(hours + offset  >= 24){
-        day = "-1";
-    }
-            
+    var user_hours = 0;
+    user_offset = user_offset * -1;
 
+    
+    if(local_hours + user_offset  <= 0) {
+        user_hours = 24 + user_hours + user_offset;
+    }
+    else  if(local_hours + user_offset  > 24){
+        user_hours = local_hours + user_offset  - 24;
+    }
+    else {
+        user_hours = local_hours + user_offset             
+    }
+
+    var diff = 0;
+
+    if( user_offset * local_offset > 0) // same sign
+    {
+        diff = Math.abs(Math.abs(local_offset)-Math.abs(user_offset));
+    }
+    else { // different sign
+        diff  = Math.abs(user_offset) + Math.abs(local_offset);
+    }
+
+    if (user_hours == 24)
+        user_hours = 0;
+
+    var criteria = 0;
+    
+    
+    if(local_offset < user_offset) {
+        criteria = user_hours - diff;
+        if(criteria < 0) {
+            day = "-1";
+        }
+        
+    }
+    else {  
+        criteria = user_hours + diff;
+        if(criteria > 24) {
+            day = "+1";
+        }
+    }
+    
+                
     if(day != 0)    
         //repl.print(day)
         document.write("<span class=\"offset\"> ("+ day +")</span>");        
