@@ -1,6 +1,6 @@
 
 body {
-    background: #333;
+    background: #fff;
     border:0px;
     padding:0px;
     margin:0px;    
@@ -9,47 +9,50 @@ body {
 div.content {
     border:0px;
     padding:0px;
-    margin:0px;
+    margin:0px;   
 }
 
 
 div.forecast-table {
     border:0px;
     padding:0px;
-    background: #333;
+    background: #ccc;
     *border-collapse: collapse;*
-    border:1px solid #333;
+    border:1px solid #ccc;
 }
 table {
   border-collapse: collapse;
   border: 1px solid #03476F;
   font: normal 11px verdana, arial, helvetica, sans-serif;
-  color: #fff;
-  background: #394757;
+  color: #222;
+  background: #6ebada;
   vertical-align:bottom;
   }
 table.surf {
   /*  border-collapse: collapse;*/
     border: 0px solid;
-    padding-top: 3px;
+    padding-top: 0px;
     font: normal 11px verdana, arial, helvetica, sans-serif;
     display:inline-block;
     width: 20px;
-/*    color: #fff;
+/*    color: #fff;*/
    background: #394757;*/
   }
+td.surf {
+ border: 1px solid #6ebada;
+}
 caption {
   text-align: left;
   font: bold 10px arial, helvetica, sans-serif;
   background: transparent;
   padding: 06px 4px 8px 4px;
-  color: #fff;
+  color: #333;
   text-transform: uppercase;
   border: 1px solid #000;
 }
 
 td {
-    border: 1px dotted #03476F;
+    border: 1px dotted #CCCCCC;
     padding: 0;
     padding-left:1px;
     padding-right:1px;
@@ -67,7 +70,7 @@ thead th, tfoot th {
   font: bold 11px verdana, arial, helvetica, sans-serif;
   border: 1px solid #000;
   text-align: center;
-  background: #333;
+  background: #03476F;
   color: #FFFFFF;
   
 }
@@ -116,8 +119,9 @@ tfoot td {
   border: 1px solid #03476F;
   color: #333;
   }*/
- tbody tr{
-  color: #fff;
+
+  .graph {
+  background: #ccc;
   }
 
 .offset {

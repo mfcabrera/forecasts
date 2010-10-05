@@ -54,6 +54,7 @@
   </thead>
   <tbody>
 
+<tr class="graph">
 <% surf_var = @variables.find {|z| z.name == 'SURFZ'  } %>  
 
  <%= render(:partial => 'surf_size_entry.html',:locals =>
@@ -62,7 +63,7 @@
    
  %>
     
-
+</tr>
  <% @variables.find_all{|z| z.name != 'SURFZ'}.each  do |var| %>
 
 
